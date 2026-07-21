@@ -1,4 +1,4 @@
-# Pontual Sinal Celular — redesign
+# Pontual Sinal de Celulares — redesign
 
 Site estático, responsivo e sem dependências externas. Pode ser publicado em hospedagem comum, Cloudflare Pages, Netlify, Vercel ou GitHub Pages.
 
@@ -30,7 +30,6 @@ Site estático, responsivo e sem dependências externas. Pode ser publicado em h
 - horário comercial;
 - endereço que pode ser exibido publicamente;
 - CNPJ e razão social no rodapé, caso desejado;
-- política comercial da visita técnica;
 - logotipo definitivo, caso exista um arquivo oficial em alta resolução.
 
 ## SEO implementado
