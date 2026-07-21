@@ -1,4 +1,4 @@
-# Plano de SEO — Pontual Sinal Celular
+# Plano de SEO — Pontual Sinal de Celulares
 
 ## Objetivo principal
 
@@ -12,7 +12,7 @@ Transformar o site em uma máquina simples de geração de contatos para pessoas
 | Repetidor de sinal | Entender e contratar o serviço | repetidor de sinal celular, amplificador de sinal para casa, sinal celular em sítio |
 | Empresas | Projeto corporativo | sinal de celular para empresas, repetidor para galpão, cobertura móvel em escritório |
 | Visita técnica | Avaliar viabilidade | visita técnica sinal celular, medição de sinal celular |
-| Quem somos | Confiança e autoridade | Pontual Sinal Celular, empresa de repetidor de sinal |
+| Quem somos | Confiança e autoridade | Pontual Sinal de Celulares, empresa de repetidor de sinal |
 | Contato | Conversão | orçamento repetidor de sinal, avaliação de sinal celular |
 
 ## SEO técnico já implementado
