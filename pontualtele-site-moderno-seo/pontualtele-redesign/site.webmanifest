@@ -1,0 +1,17 @@
+{
+  "name": "Pontual Sinal Celular",
+  "short_name": "Pontual",
+  "description": "Soluções técnicas para melhorar o sinal de celular em casas, empresas, sítios e grandes áreas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "/assets/img/logo-pontual.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Pontual Sinal Celular</title>
+  <desc id="desc">Símbolo de antena com ondas de sinal</desc>
+  <defs>
+    <linearGradient id="g" x1="25" y1="25" x2="155" y2="155" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35D8FF"/>
+      <stop offset="1" stop-color="#1264E3"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="48" fill="#07111F"/>
+  <path d="M90 76v61M72 137h36M80 137l10-43 10 43" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="90" cy="63" r="9" fill="url(#g)"/>
+  <path d="M60 49c-12 12-12 31 0 43M120 49c12 12 12 31 0 43M42 32c-22 22-22 58 0 80M138 32c22 22 22 58 0 80" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round"/>
+</svg>
