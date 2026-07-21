@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pontual Sinal de Celulares | Layout 3 — Tech Dark</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --bg:#060a12; --panel:#0d131f; --panel-2:#121a29; --line:#1e2735;
+  --cyan:#38f0d6; --cyan-dim:#1e6b60; --text:#e7edf5; --muted:#8a95a8;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  --sans:Inter,ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(calc(100% - 40px),1240px);margin-inline:auto}
+.mono{font-family:var(--mono)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(6,10,18,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;min-height:80px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand img{width:34px;height:34px}
+.brand .mono{color:var(--cyan);font-size:.7rem;letter-spacing:.1em}
+.navlinks{display:flex;gap:28px;font-size:.86rem;color:var(--muted)}
+.navlinks a:hover{color:var(--cyan)}
+.nav-cta{font-size:.82rem;font-weight:700;padding:10px 18px;border-radius:8px;background:var(--cyan);color:#04241f}
+
+.hero{position:relative;overflow:hidden;padding:80px 0 60px;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(56,240,214,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(56,240,214,.05) 1px,transparent 1px);background-size:36px 36px;mask-image:linear-gradient(to bottom,#000,transparent 80%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--cyan-dim);border-radius:999px;font-size:.75rem;color:var(--cyan);margin-bottom:20px}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(56,240,214,.18)}
+.hero h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;margin:0 0 18px;letter-spacing:-.02em}
+.hero h1 span{color:var(--cyan)}
+.hero p.lede{color:var(--muted);max-width:520px;font-size:1.05rem}
+.hero-actions{display:flex;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:700;font-size:.9rem;border:1px solid var(--line)}
+.btn-cyan{background:var(--cyan);color:#04241f;border-color:var(--cyan)}
+.btn-ghost{color:var(--text)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+
+.panel{border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,var(--panel-2),var(--panel));padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:.85rem}
+.dot{display:inline-flex;align-items:center;gap:6px;color:#8ef0c8}
+.dot::before{content:"";width:6px;height:6px;border-radius:50%;background:#3ee08a}
+.readout{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.readout div{padding:14px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
+.readout span{display:block;font-size:.72rem;color:var(--muted);margin-bottom:6px}
+.readout strong{font-family:var(--mono);font-size:1.1rem;color:var(--cyan)}
+.bars{display:flex;align-items:flex-end;gap:6px;height:70px;margin-top:16px}
+.bars i{flex:1;background:linear-gradient(180deg,var(--cyan),var(--cyan-dim));border-radius:3px 3px 0 0;opacity:.85}
+
+.strip{border-bottom:1px solid var(--line);padding:20px 0}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:.83rem;color:var(--muted)}
+.strip strong{color:var(--text)}
+.strip .mono{color:var(--cyan)}
+
+.section{padding:80px 0;border-bottom:1px solid var(--line)}
+.section-head{max-width:640px;margin-bottom:48px}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan)}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:14px 0 12px;letter-spacing:-.02em}
+.section-head p{color:var(--muted)}
+
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.svc{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--panel);transition:border-color .2s,transform .2s}
+.svc:hover{border-color:var(--cyan-dim);transform:translateY(-4px)}
+.svc .tag{font-family:var(--mono);font-size:.7rem;color:var(--cyan);letter-spacing:.1em}
+.svc h3{font-size:1.05rem;margin:12px 0 8px}
+.svc p{font-size:.88rem;color:var(--muted);margin:0}
+
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.timeline > div{padding:26px 22px;border-right:1px solid var(--line);background:var(--panel)}
+.timeline > div:last-child{border-right:0}
+.timeline .idx{font-family:var(--mono);color:var(--cyan);font-size:.85rem}
+.timeline h3{font-size:.98rem;margin:10px 0 6px}
+.timeline p{font-size:.85rem;color:var(--muted);margin:0}
+
+.terminal{border:1px solid var(--line);border-radius:14px;background:#04070c;padding:24px;font-family:var(--mono);font-size:.86rem;overflow-x:auto}
+.terminal .l1{color:var(--muted)}
+.terminal .ok{color:#3ee08a}
+.terminal .cy{color:var(--cyan)}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{padding:26px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.quote p{margin:0 0 16px;font-size:.94rem}
+.quote footer{font-size:.8rem;color:var(--muted)}
+.quote footer strong{display:block;color:var(--text)}
+
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:700}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--cyan);font-family:var(--mono)}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);margin:12px 0 0}
+
+.cta{padding:90px 0;text-align:center;background:linear-gradient(160deg,var(--panel-2),var(--bg))}
+.cta h2{font-size:clamp(1.9rem,4vw,3rem);max-width:780px;margin:0 auto 16px;letter-spacing:-.02em}
+.cta p{color:var(--muted);margin-bottom:28px}
+.cta .hero-actions{justify-content:center}
+
+footer.site{padding:50px 0 34px;font-size:.85rem;color:var(--muted)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.foot-grid h2{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);margin-bottom:12px}
+.foot-grid a{display:block;margin:6px 0}
+.foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between}
+
+@media(max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .grid-4,.timeline{grid-template-columns:1fr 1fr}
+  .timeline>div{border-bottom:1px solid var(--line)}
+  .quotes{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .navlinks{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index3.html"><img src="assets/img/logo-pontual.svg" alt="">Pontual <span class="mono">/// SINAL</span></a>
+    <nav class="navlinks">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#depoimentos">Casos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/551142177099" target="_blank" rel="noopener">Falar agora</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="badge"><i></i> layout 03 · tech dark</div>
+      <h1>Diagnóstico de sinal <span>antes</span> da instalação.</h1>
+      <p class="lede">Medição de campo, projeto técnico e repetidores para áreas com recepção fraca — residências, empresas, sítios e galpões em São Paulo e região.</p>
+      <div class="hero-actions">
+        <a class="btn btn-cyan" href="https://wa.me/551142177099?text=Ol%C3%A1%2C%20quero%20uma%20avalia%C3%A7%C3%A3o%20de%20sinal." target="_blank" rel="noopener">Solicitar avaliação</a>
+        <a class="btn btn-ghost" href="tel:+551142177099">(11) 4217-7099</a>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><strong>painel_diagnostico.log</strong><span class="dot">ativo</span></div>
+      <div class="readout">
+        <div><span>Sinal externo</span><strong>-78 dBm</strong></div>
+        <div><span>Operadora</span><strong>multi</strong></div>
+        <div><span>Área projeto</span><strong>≥500 m²</strong></div>
+        <div><span>Visita técnica</span><strong>sob consulta</strong></div>
+      </div>
+      <div class="bars">
+        <i style="height:40%"></i><i style="height:65%"></i><i style="height:30%"></i><i style="height:80%"></i><i style="height:50%"></i><i style="height:90%"></i><i style="height:35%"></i><i style="height:60%"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span><strong>Equipamentos</strong> homologados <span class="mono">ANATEL</span></span>
+  <span><strong>Visita técnica</strong> conforme distância/porte — descontada se aprovar</span>
+  <span class="mono">pontualtele@gmail.com</span>
+</div></div>
+
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">// serviços</span><h2>Quatro frentes, um mesmo diagnóstico.</h2><p>Cada projeto começa com dados reais de campo, não com um catálogo genérico.</p></div>
+    <div class="grid-4">
+      <div class="svc"><span class="tag">01 · CORE</span><h3>Repetidor de sinal</h3><p>Amplificação para todas as operadoras e frequências disponíveis.</p></div>
+      <div class="svc"><span class="tag">02 · DIAG</span><h3>Visita técnica</h3><p>Medição no local. Valor conforme distância/porte, negociável.</p></div>
+      <div class="svc"><span class="tag">03 · B2B</span><h3>Projetos empresariais</h3><p>Cobertura para escritórios, lojas e operações críticas.</p></div>
+      <div class="svc"><span class="tag">04 · LEASE</span><h3>Locação de equipamento</h3><p>Sem investimento inicial elevado, manutenção inclusa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="processo">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">// processo</span><h2>Do primeiro contato à ativação.</h2></div>
+    <div class="timeline">
+      <div><div class="idx">STEP·01</div><h3>Contato</h3><p>Local, problema e operadoras utilizadas.</p></div>
+      <div><div class="idx">STEP·02</div><h3>Visita técnica</h3><p>Medição real de campo — valor sob consulta.</p></div>
+      <div><div class="idx">STEP·03</div><h3>Proposta</h3><p>Configuração, área e etapas do serviço.</p></div>
+      <div><div class="idx">STEP·04</div><h3>Instalação</h3><p>Sistema ativo e testado no mesmo dia.</p></div>
+    </div>
+    <div style="height:18px"></div>
+    <div class="terminal">
+<div class="l1">$ pontual --agendar-visita --regiao="SP"</div>
+<div>&gt; calculando valor sob consulta (distância, porte)...</div>
+<div class="ok">&gt; instalação aprovada → desconto aplicado ao orçamento final ✔</div>
+<div class="cy">&gt; status: pronto para agendar</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">// casos reais</span><h2>Sinal medido, resolvido e testado.</h2></div>
+    <div class="quotes">
+      <div class="quote"><p>"Depois que instalei o repetidor, sempre que vou para o sítio meus filhos vão comigo. Agora temos sinal de telefone e internet."</p><footer><strong>Marcos Baroni</strong>Mogi das Cruzes</footer></div>
+      <div class="quote"><p>"Antes eu precisava ir até a janela do escritório. Agora consigo falar sem sair da minha mesa."</p><footer><strong>Adriana</strong>Alumínio Oliveira · Bragança Paulista</footer></div>
+      <div class="quote"><p>"Outras empresas tentaram, mas só a Pontual conseguiu. Hoje temos sinal de celular e internet móvel."</p><footer><strong>José Trevino</strong>Sítio Recanto Alex · Nazaré Paulista</footer></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">// faq</span><h2>Perguntas antes do orçamento.</h2></div>
+    <div class="faq">
+      <details open><summary>A visita técnica é gratuita?</summary><p>O valor depende da distância e do porte da instalação, podendo ser negociado. Se a instalação for aprovada, o valor pago na visita é descontado do orçamento final.</p></details>
+      <details><summary>Funciona com todas as operadoras?</summary><p>Sim, em diferentes frequências, conforme disponibilidade no endereço.</p></details>
+      <details><summary>Qual a área máxima de cobertura?</summary><p>A partir de 500 m², com soluções escaláveis para galpões e áreas rurais.</p></details>
+      <details><summary>Há locação de equipamentos?</summary><p>Sim, para empresas — condições sob consulta.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Sem sinal onde precisa? Vamos medir antes de prometer.</h2>
+    <p>Diagnóstico técnico real antes de qualquer instalação.</p>
+    <div class="hero-actions">
+      <a class="btn btn-cyan" href="https://wa.me/551142177099?text=Ol%C3%A1%2C%20quero%20solicitar%20uma%20avalia%C3%A7%C3%A3o%20t%C3%A9cnica." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+551142177099">Ligar agora</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site"><div class="wrap">
+  <div class="foot-grid">
+    <div><a class="brand" href="index3.html" style="margin-bottom:12px"><img src="assets/img/logo-pontual.svg" alt="">Pontual</a><p>Diagnóstico técnico e instalação de repetidores de sinal celular.</p></div>
+    <div><h2>Serviços</h2><a href="#servicos">Repetidor</a><a href="#servicos">Visita técnica</a><a href="#servicos">Empresas</a></div>
+    <div><h2>Empresa</h2><a href="#depoimentos">Casos</a><a href="#faq">FAQ</a></div>
+    <div><h2>Contato</h2><a href="tel:+551142177099">(11) 4217-7099</a><a href="mailto:pontualtele@gmail.com" class="mono">pontualtele@gmail.com</a></div>
+  </div>
+  <div class="foot-bottom"><span>© 2026 Pontual Sinal de Celulares</span><span class="mono">layout_03 · tech_dark</span></div>
+</div></footer>
+</body>
+</html>
